@@ -1,6 +1,6 @@
 # Brickwork
 
-Brickwork is a simple and lightweight masonry grid system for images. It doesn't use absolute positioning, it doesn't create elements, and it doesn't apply any styles. All Brickwork does is sort _your_ items into _your_ columns.
+Brickwork is a simple and lightweight masonry grid system for images. It's highly performant and extremely flexible. It doesn't use absolute positioning, it doesn't create elements, and it doesn't apply any styles. All Brickwork does is sort items into columns. And it does so efficiently, by first performing calculations with virtual representations of the grid and only making DOM changes once, after the new layout has been determined.
 
 In the interest of performance, the sizes of images are not pulled during every layout calculation. Rather, the aspect ratio of each item is pulled from a data attribute on the element upon initialization. Specifically, this number indicates the height of the item if the width is `1` (i.e. _height_ / _width_). For example, for an item with a 640x480 image, this attribute would read `data-height="0.75"`.
 
@@ -75,4 +75,4 @@ In the interest of performance, the sizes of images are not pulled during every 
 	new Brickwork(columns, items);
 	```
 
-[See the demo;](./demo)
+[View the full demo files &raquo;](./demo)
