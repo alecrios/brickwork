@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/reset.css">
+	<title>Brickwork</title>
+
+	<style>
+		/* Set the display of the grid. */
+		.brickwork {
+			display: flex;
+		}
+
+		/* Progressively show more columns on larger screens. */
+		.column { display: none }
+		.column:nth-child(1) { display: block }
+		@media (min-width: 32em) { .column:nth-child(2) { display: block } }
+		@media (min-width: 48em) { .column:nth-child(3) { display: block } }
+		@media (min-width: 64em) { .column:nth-child(4) { display: block } }
+
+		/* Set the spacing between images. */
+		.brickwork,
+		.item {
+			padding: .5rem;
+		}
+
+		/* Hide items by default. */
+		.item {
+			display: none;
+		}
+
+		/* Only show items that have been placed in a column. */
+		.column .item {
+			display: block;
+		}
+
+		/* Set images to occupy the full width of the item. */
+		img {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="brickwork">
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+	</div>
+
+	<div class="item" data-height="0.50"><img src="img/01.jpg"></div>
+	<div class="item" data-height="1.00"><img src="img/02.jpg"></div>
+	<div class="item" data-height="1.00"><img src="img/03.jpg"></div>
+	<div class="item" data-height="1.00"><img src="img/04.jpg"></div>
+	<div class="item" data-height="1.00"><img src="img/05.jpg"></div>
+	<div class="item" data-height="0.50"><img src="img/06.jpg"></div>
+	<div class="item" data-height="0.75"><img src="img/07.jpg"></div>
+	<div class="item" data-height="1.50"><img src="img/08.jpg"></div>
+	<div class="item" data-height="1.25"><img src="img/09.jpg"></div>
+	<div class="item" data-height="1.00"><img src="img/10.jpg"></div>
+	<div class="item" data-height="0.25"><img src="img/11.jpg"></div>
+	<div class="item" data-height="1.50"><img src="img/12.jpg"></div>
+	<div class="item" data-height="0.75"><img src="img/13.jpg"></div>
+	<div class="item" data-height="0.75"><img src="img/14.jpg"></div>
+	<div class="item" data-height="1.25"><img src="img/15.jpg"></div>
+	<div class="item" data-height="1.50"><img src="img/16.jpg"></div>
+	<div class="item" data-height="1.75"><img src="img/17.jpg"></div>
+	<div class="item" data-height="0.50"><img src="img/18.jpg"></div>
+	<div class="item" data-height="1.25"><img src="img/19.jpg"></div>
+	<div class="item" data-height="0.75"><img src="img/20.jpg"></div>
+	<div class="item" data-height="0.50"><img src="img/21.jpg"></div>
+	<div class="item" data-height="1.50"><img src="img/22.jpg"></div>
+	<div class="item" data-height="1.25"><img src="img/23.jpg"></div>
+	<div class="item" data-height="0.75"><img src="img/24.jpg"></div>
+
+	<script src="../index.js"></script>
+
+	<script>
+		const columns = document.querySelectorAll('.column');
+		const items = document.querySelectorAll('.item');
+		new Brickwork(columns, items);
+	</script>
+</body>
+</html>
