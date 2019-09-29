@@ -1,3 +1,18 @@
+function throttle(callback, delay) {
+	let timeout = null;
+
+	return function call(...args) {
+		const next = () => {
+			callback.apply(this, args);
+			timeout = null;
+		};
+
+		if (!timeout) {
+			timeout = setTimeout(next, delay);
+		}
+	};
+}
+
 class Brickwork {
 	constructor(columns, items) {
 		// Store the data for each column and item.
@@ -6,7 +21,7 @@ class Brickwork {
 
 		// Calculate layout initially and upon window resize.
 		this.setLayout();
-		window.addEventListener('resize', this.onResize.bind(this));
+		window.addEventListener('resize', throttle(() => this.onResize(), 250));
 	}
 
 	getColumnInterface(element) {
